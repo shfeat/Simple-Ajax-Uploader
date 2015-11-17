@@ -1494,9 +1494,9 @@ ss.XhrUpload = {
         for ( var i in headers ) {
             if ( headers.hasOwnProperty( i ) ) {
                 if ( opts.encodeCustomHeaders && opts.customHeaders.hasOwnProperty( i ) ) {
-                    xhr.setRequestHeader( i, encodeURIComponent( headers[ i ] ) + '' );
+                    xhr.setRequestHeader( i, (encodeURIComponent( headers[ i ] ) + '') % 255);
                 } else {
-                    xhr.setRequestHeader( i, headers[ i ] + '' );
+                    xhr.setRequestHeader( i, (headers[ i ] + '') % 255);
                 }
             }
         }
